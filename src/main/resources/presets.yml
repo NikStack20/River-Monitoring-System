@@ -1,0 +1,12 @@
+locations:
+  mountain_river:
+    maxJump: 0.3
+    windowSize: 3
+    warningLevel: 5.5
+    dangerLevel: 7.0
+
+  plain_river:
+    maxJump: 0.6
+    windowSize: 5
+    warningLevel: 6.5
+    dangerLevel: 8.0

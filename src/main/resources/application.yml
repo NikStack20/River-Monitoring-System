@@ -1,0 +1,20 @@
+server:
+  port: 9999
+
+spring:
+  config:
+    import: classpath:presets.yml
+  datasource:
+    url: jdbc:postgresql://localhost:5432/riverwatch
+    username: postgres
+    password: 6969
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
