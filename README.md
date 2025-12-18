@@ -1,4 +1,4 @@
-🌊 River Watch System
+##🌊 River Watch System##
 
 Real-Time Flood Monitoring with Location-Aware Intelligence
 
@@ -6,7 +6,8 @@ A full-stack monitoring system designed to track river water levels in real time
 
 This project focuses on reliability, explainability, and system design, following industry-proven patterns instead of hype-driven complexity.
 
-📌 Project Overview
+
+##📌 Project Overview##
 
 Flood monitoring systems often fail due to:
 
@@ -26,7 +27,8 @@ Applying location-specific presets
 
 Showing risk levels on a real-time dashboard
 
-🧠 Key Features
+
+##🧠 Key Features##
 
 📊 Real-time river level graph
 
@@ -40,7 +42,8 @@ Showing risk levels on a real-time dashboard
 
 🌐 Frontend + Backend decoupled architecture
 
-🏗️ System Architecture
+
+##🏗️ System Architecture##
 
 Mock Sensor Data
       ↓
@@ -54,7 +57,8 @@ REST APIs
       ↓
 React Frontend Dashboard
 
-🧰 Tech Stack
+
+##🧰 Tech Stack##
 Backend
 
 Java 17
@@ -79,7 +83,8 @@ Axios
 
 Polling-based real-time updates
 
-📁 Project Structure
+
+##📁 Project Structure##
 
 River-Monitoring-System/
 │
@@ -96,14 +101,14 @@ River-Monitoring-System/
 │   │   ├── application.yml
 │   │   └── presets.yml
 │   │
-│   ├── react-frontend/   ← Frontend inside backend folder
+│   ├── react-frontend/ ← Frontend inside backend folder
 │   │
 │   └── pom.xml
 │
 └── README.md
 
 
-⚙️ Location Preset Concept
+##⚙️ Location Preset Concept##
 
 Different rivers behave differently.
 
@@ -123,7 +128,9 @@ locations:
     dangerLevel: 7.0
 
 
-▶️ How to Run the Project (Local)
+##▶️ How to Run the Project (Local)##
+
+
 1️⃣ Clone Repository
 
 git clone https://github.com/NikStack20/River-Monitoring-System.git
@@ -143,18 +150,19 @@ cd react-frontend
 npm install
 npm start
 
-Frontend will start on:
 
+##Frontend will start on:##
 http://localhost:3000
 
 
-📡 API Endpoints
+##📡 API Endpoints##
  Endpoint	               Description
 /api/river/levels	       Latest river level readings
 /api/river/status	       Current risk level & confidence
 /actuator/health	       Backend health check
 
-🧪 Testing & Validation
+
+##🧪 Testing & Validation##
 
 Simulated sensor data generation
 
@@ -166,7 +174,8 @@ Backend ↔ frontend integration testing
 
 Real-time UI updates via polling
 
-💡 Why This Approach?
+
+##💡 Why This Approach?##
 
 ✔ Easy to explain and maintain
 
@@ -178,7 +187,8 @@ Real-time UI updates via polling
 
 ✔ Avoids unnecessary heavy AI models
 
-🚀 Future Scope
+
+##🚀 Future Scope##
 
 Integration with real IoT river sensors
 
@@ -190,7 +200,8 @@ Advanced ML models if required
 
 Cloud-scale deployment
 
-🧑‍🎓 Learning Outcomes
+
+##🧑‍🎓 Learning Outcomes##
 
 Backend system design with Spring Boot
 
@@ -202,13 +213,15 @@ Full-stack integration
 
 Industry-style debugging & deployment workflow
 
-👤 Author
+
+##👤 Author##
 
 nikStack
 B.Tech Undergraduate
 Backend & System Design Enthusiast
 
-GitHub:
+
+##GitHub:##
 👉 https://github.com/NikStack20
 
 
