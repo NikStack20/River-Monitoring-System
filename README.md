@@ -1,125 +1,118 @@
-##🌊 River Watch System##
+# 🌊 River Watch System  
+## Real-Time Flood Monitoring with Location-Aware Intelligence
 
-Real-Time Flood Monitoring with Location-Aware Intelligence
+A **full-stack monitoring system** designed to track river water levels in real time, intelligently filter unreliable sensor data, and provide clear flood risk alerts through a live dashboard.
 
-A full-stack monitoring system designed to track river water levels in real time, intelligently filter unreliable sensor data, and provide clear flood risk alerts through a live dashboard.
+This project focuses on **reliability, explainability, and system design**, following industry-proven patterns instead of hype-driven complexity.
 
-This project focuses on reliability, explainability, and system design, following industry-proven patterns instead of hype-driven complexity.
+---
 
-
-##📌 Project Overview##
+## 📌 Project Overview
 
 Flood monitoring systems often fail due to:
 
-Delayed alerts
+- Delayed alerts  
+- Noisy or faulty sensor data  
+- One-size-fits-all thresholds  
 
-Noisy or faulty sensor data
+**River Watch System** addresses these challenges by:
 
-One-size-fits-all thresholds
+- Continuously monitoring river water levels  
+- Filtering abnormal or faulty sensor spikes  
+- Applying location-specific preset configurations  
+- Displaying clear risk levels on a real-time dashboard  
 
-River Watch System solves this by:
+---
 
-Continuously monitoring river levels
+## 🧠 Key Features
 
-Filtering abnormal sensor spikes
+- 📊 **Real-time river level visualization**
+- 🚦 **Risk classification**: SAFE / WARNING / DANGER
+- 🧩 **Location-aware presets** (same logic, different behavior)
+- 🧠 **Explainable intelligence** (rule-based + lightweight analysis)
+- 🔄 **Mock sensor simulation** for controlled testing
+- 🌐 **Decoupled frontend and backend architecture**
 
-Applying location-specific presets
+---
 
-Showing risk levels on a real-time dashboard
+## 🏗️ System Architecture
 
-
-##🧠 Key Features##
-
-📊 Real-time river level graph
-
-🚦 Risk classification: SAFE / WARNING / DANGER
-
-🧩 Location-aware presets (same logic, different behavior)
-
-🧠 Explainable intelligence (no black-box AI)
-
-🔄 Mock sensor simulation for testing
-
-🌐 Frontend + Backend decoupled architecture
-
-
-##🏗️ System Architecture##
-
-Mock Sensor Data
-      ↓
+Mock / Simulated Sensor Data
+↓
 Spring Boot Backend
-      ↓
-Business Logic + Presets
-      ↓
-Database (Time-Series Data)
-      ↓
+↓
+Business Logic + Preset Engine
+↓
+Database (Time-Series Storage)
+↓
 REST APIs
-      ↓
+↓
 React Frontend Dashboard
 
 
-##🧰 Tech Stack##
-Backend
 
-Java 17
+---
 
-Spring Boot
+## 🧰 Tech Stack
 
-Spring Data JPA
+### Backend
+- Java 17  
+- Spring Boot  
+- Spring Data JPA  
+- Scheduled mock sensor generator  
+- YAML-based configuration presets  
+- RESTful APIs  
 
-Scheduler (Mock Sensor)
+### Frontend
+- React  
+- Chart.js  
+- Axios  
+- Polling-based real-time updates  
 
-Configuration-based presets (YAML)
+---
 
-REST APIs
-
-Frontend
-
-React
-
-Chart.js
-
-Axios
-
-Polling-based real-time updates
-
-
-##📁 Project Structure##
+## 📁 Project Structure
 
 River-Monitoring-System/
 │
 ├── River-Watch-Backend/
-│   ├── src/main/java/
-│   │   ├── config/
-│   │   ├── controller/
-│   │   ├── service/
-│   │   ├── model/
-│   │   ├── repository/
-│   │   └── scheduler/
-│   │
-│   ├── src/main/resources/
-│   │   ├── application.yml
-│   │   └── presets.yml
-│   │
-│   ├── react-frontend/ ← Frontend inside backend folder
-│   │
-│   └── pom.xml
+│ ├── src/main/java/
+│ │ ├── config/ # Presets, CORS, application configs
+│ │ ├── controller/ # REST controllers
+│ │ ├── service/ # Core business logic
+│ │ ├── model/ # Domain models
+│ │ ├── repository/ # JPA repositories
+│ │ └── scheduler/ # Mock sensor generator
+│ │
+│ ├── src/main/resources/
+│ │ ├── application.yml
+│ │ └── presets.yml
+│ │
+│ ├── react-frontend/ # React frontend (inside backend folder)
+│ │
+│ └── pom.xml
 │
 └── README.md
 
 
-##⚙️ Location Preset Concept##
 
-Different rivers behave differently.
 
-Instead of retraining models:
+---
 
-We use preset-based configuration
+## ⚙️ Location Preset Concept
 
-Each location has its own thresholds and sensitivity
+Different rivers behave differently based on geography and flow patterns.
 
-Example:
+Instead of retraining models for each river, the system uses
+**preset-based configuration**:
 
+- Each location has predefined thresholds
+- Core decision logic remains unchanged
+- Behavior is controlled entirely via configuration files
+
+### Example Preset Configuration
+
+```yaml
 locations:
   mountain_river:
     maxJump: 0.3
@@ -128,100 +121,98 @@ locations:
     dangerLevel: 7.0
 
 
-##▶️ How to Run the Project (Local)##
-
-
-1️⃣ Clone Repository
+## ▶️ How to Run the Project (Local Setup)
+1️⃣ Clone the Repository
 
 git clone https://github.com/NikStack20/River-Monitoring-System.git
 cd River-Monitoring-System/River-Watch-Backend
 
+
 2️⃣ Run Backend (Spring Boot)
 
 mvn spring-boot:run
-
 http://localhost:9999
-
 http://localhost:9999/actuator/health
+
 
 3️⃣ Run Frontend (React)
 
 cd react-frontend
 npm install
 npm start
-
-
-##Frontend will start on:##
 http://localhost:3000
 
+## 📡 API Endpoints
 
-##📡 API Endpoints##
- Endpoint	               Description
-/api/river/levels	       Latest river level readings
-/api/river/status	       Current risk level & confidence
-/actuator/health	       Backend health check
+Endpoint          	Description
+/api/river/levels 	Fetch recent river level readings
+/api/river/status	      Current risk status with confidence
+/actuator/health       	Backend health status
 
 
-##🧪 Testing & Validation##
+## 🧪 Testing & Validation Strategy
 
-Simulated sensor data generation
+Mock sensor data generation for controlled testing
 
-Spike detection (fake sensor errors)
+Spike detection to ignore faulty sensor readings
 
-Preset switching between locations
+Location preset switching validation
 
 Backend ↔ frontend integration testing
 
-Real-time UI updates via polling
+Real-time UI update verification via polling
 
 
-##💡 Why This Approach?##
+## 💡 Why This Approach?
 
-✔ Easy to explain and maintain
+✔ Simple and explainable system design
 
 ✔ Reliable under noisy real-world data
 
-✔ Scalable to new locations
+✔ Easily scalable to multiple locations
 
-✔ Industry-aligned system design
+✔ Aligns with industry backend practices
 
 ✔ Avoids unnecessary heavy AI models
 
 
-##🚀 Future Scope##
+## 🚀 Future Scope
 
-Integration with real IoT river sensors
+Integration with real IoT-based river sensors
 
-Weather & rainfall API integration
+Weather and rainfall data integration
 
-SMS / Mobile alerts for authorities
+Automated alert notifications
 
-Advanced ML models if required
+Advanced predictive models if required
 
-Cloud-scale deployment
+Cloud-based deployment for scalability
 
 
-##🧑‍🎓 Learning Outcomes##
+## 🧑‍🎓 Learning Outcomes
 
-Backend system design with Spring Boot
+Backend system design using Spring Boot
 
-Configuration-driven intelligence
+Configuration-driven decision systems
 
 Real-time frontend dashboards
 
-Full-stack integration
+End-to-end full-stack integration
 
-Industry-style debugging & deployment workflow
+Industry-style debugging and deployment workflow
 
 
-##👤 Author##
+## 👤 Author
 
 nikStack
 B.Tech Undergraduate
 Backend & System Design Enthusiast
 
+## 🔗 GitHub:
+https://github.com/NikStack20
 
-##GitHub:##
-👉 https://github.com/NikStack20
+
+
+
 
 
